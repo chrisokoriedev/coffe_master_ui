@@ -1,5 +1,7 @@
   import 'package:flutter/material.dart';
 
+import 'tab/coffee_tab.dart';
+
 final List<Tab> myTabs = <Tab>[
     const Tab(text: 'Coffee'),
     const Tab(text: 'Tea'),
@@ -9,9 +11,10 @@ final List<Tab> myTabs = <Tab>[
   ];
 
   final List<Widget> tabViews = [
-    const Center(child: Text('Tab 2 content')),
+    const CoffeeTab(),
     const Center(child: Text('Tab 2 content')),
     const Center(child: Text('Tab 2 content')),
     const Center(child: Text('Tab 2 content')),
     const Center(child: Text('Tab 2 content')),
   ];
+
