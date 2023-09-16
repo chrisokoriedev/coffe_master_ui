@@ -1,6 +1,5 @@
-import 'package:coffe_master_ui/list.dart';
-import 'package:coffe_master_ui/main.dart';
-import 'package:coffe_master_ui/widget/linear.dart';
+
+import 'package:coffe_master_ui/import.dart';
 import 'package:flutter/material.dart';
 
 class CoffeeTab extends StatelessWidget {
