@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:coffe_master_ui/list.dart';
 import 'package:coffe_master_ui/main.dart';
 import 'package:flutter/material.dart';
@@ -40,7 +41,9 @@ class CoffeeTab extends StatelessWidget {
                     height: 130,
                     decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(20),
-                        color: Colors.amber),
+                        color: Colors.amber,
+                        image: DecorationImage(
+                            image: AssetImage(data.imageUrl))),
                     child: Row(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       mainAxisAlignment: MainAxisAlignment.end,
