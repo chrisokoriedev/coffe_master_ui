@@ -1,7 +1,10 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
+import 'widget/cricleUndertab.dart';
+
 const lightBlueInput = Color(0xff0e162b);
+const tabText = Color(0xff405361);
 const scafffoldBg = Color.fromARGB(255, 2, 10, 22);
 void main() {
   runApp(const MyApp());
@@ -58,11 +61,18 @@ class _MyHomePageState extends State<MyHomePage>
     const Tab(text: 'Cold Beverages'),
   ];
 
+  final List<Widget> tabViews = [
+    const Center(child: Text('Tab 2 content')),
+    const Center(child: Text('Tab 2 content')),
+    const Center(child: Text('Tab 2 content')),
+    const Center(child: Text('Tab 2 content')),
+    const Center(child: Text('Tab 2 content')),
+  ];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: SafeArea(
-        child: SingleChildScrollView(
+        child: Padding(
           padding: const EdgeInsets.all(20),
           child:
               Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
@@ -97,6 +107,20 @@ class _MyHomePageState extends State<MyHomePage>
                   fillColor: lightBlueInput,
                   border: inputborder(),
                   enabledBorder: inputborder()),
+            ),
+            const SizedBox(height: 20),
+            TabBar(
+                controller: _tabController,
+                isScrollable: true,
+                dividerColor: Colors.transparent,
+                unselectedLabelColor: tabText,
+                indicator: CircleTabIndicator(color: Colors.amber),
+                tabs: myTabs),
+            Expanded(
+              child: TabBarView(
+                controller: _tabController,
+                children: tabViews,
+              ),
             ),
           ]),
         ),
