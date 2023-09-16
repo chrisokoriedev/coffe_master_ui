@@ -12,6 +12,7 @@ class CoffeeTab extends StatelessWidget {
   Widget build(BuildContext context) {
     final text = Theme.of(context).textTheme;
     return ListView.builder(
+        physics: const BouncingScrollPhysics(decelerationRate: ScrollDecelerationRate.fast),
         scrollDirection: Axis.horizontal,
         itemCount: getCoffeeDetail.length,
         padding: const EdgeInsets.symmetric(vertical: 20),
@@ -41,20 +42,20 @@ class CoffeeTab extends StatelessWidget {
                     height: 130,
                     decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(20),
-                        color: Colors.amber,
                         image: DecorationImage(
-                            image: AssetImage(data.imageUrl))),
+                            image: AssetImage(data.imageUrl),
+                            fit: BoxFit.cover)),
                     child: Row(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       mainAxisAlignment: MainAxisAlignment.end,
                       children: [
                         Container(
-                            padding: const EdgeInsets.symmetric(horizontal: 15),
+                            padding: const EdgeInsets.symmetric(horizontal: 10,vertical: 1),
                             decoration: BoxDecoration(
                                 borderRadius: const BorderRadius.only(
                                     topRight: Radius.circular(20),
                                     bottomLeft: Radius.circular(20)),
-                                color: Colors.black.withOpacity(0.3)),
+                                color: Colors.black.withOpacity(0.5)),
                             child: Row(
                               children: [
                                 const Icon(
