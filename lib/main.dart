@@ -1,5 +1,8 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
+const lightBlueInput = Color(0xff0e162b);
+const scafffoldBg = Color.fromARGB(255, 2, 10, 22);
 void main() {
   runApp(const MyApp());
 }
@@ -12,10 +15,11 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Flutter Demo',
+      debugShowCheckedModeBanner: false,
       theme: ThemeData(
-        brightness: Brightness.dark,
-        scaffoldBackgroundColor: Colors.black,
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.amber),
+        scaffoldBackgroundColor: scafffoldBg,
+        colorScheme: ColorScheme.fromSeed(
+            seedColor: Colors.amber, brightness: Brightness.dark),
         useMaterial3: true,
       ),
       home: const MyHomePage(),
@@ -23,24 +27,59 @@ class MyApp extends StatelessWidget {
   }
 }
 
-class MyHomePage extends StatelessWidget {
+class MyHomePage extends StatefulWidget {
   const MyHomePage({super.key});
 
   @override
+  State<MyHomePage> createState() => _MyHomePageState();
+}
+
+class _MyHomePageState extends State<MyHomePage> {
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: const Column(children: [
-        Row(
-          children: [
-            Icon(Icons.menu),
-            CircleAvatar(
-              child: FlutterLogo(),
+      body: SafeArea(
+        child: SingleChildScrollView(
+          padding: const EdgeInsets.all(20),
+          child:
+              Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
+            const Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Icon(Icons.menu),
+                CircleAvatar(
+                  child: FlutterLogo(),
+                ),
+              ],
             ),
-          ],
+            const SizedBox(height: 30),
+            const Text(
+              'Find the best \ncoffee for you',
+              style: TextStyle(
+                  fontSize: 30, fontWeight: FontWeight.bold, wordSpacing: 1.6),
+            ),
+            const SizedBox(height: 20),
+            TextFormField(
+              textAlignVertical: TextAlignVertical.center,
+              decoration: InputDecoration(
+                  filled: true,
+                  hintText: 'Find Your Coffee..',
+                  hintStyle: const TextStyle(
+                      fontSize: 12, color: Color.fromARGB(255, 125, 131, 145)),
+                  prefixIcon: const Icon(CupertinoIcons.search),
+                  isDense: true,
+                  contentPadding:
+                      const EdgeInsets.symmetric(horizontal: 15, vertical: 10),
+                  fillColor: lightBlueInput,
+                  border: inputborder(),
+                  enabledBorder: inputborder()),
+            ),
+          ]),
         ),
-        SizedBox(height: 30),
-        Text('Find the  best coffee for you')
-      ]),
+      ),
     );
   }
+
+  OutlineInputBorder inputborder() => OutlineInputBorder(
+      borderSide: BorderSide.none, borderRadius: BorderRadius.circular(10));
 }
