@@ -34,7 +34,30 @@ class MyHomePage extends StatefulWidget {
   State<MyHomePage> createState() => _MyHomePageState();
 }
 
-class _MyHomePageState extends State<MyHomePage> {
+class _MyHomePageState extends State<MyHomePage>
+    with SingleTickerProviderStateMixin {
+  late TabController _tabController;
+
+  @override
+  void initState() {
+    super.initState();
+    _tabController = TabController(length: myTabs.length, vsync: this);
+  }
+
+  @override
+  void dispose() {
+    _tabController.dispose();
+    super.dispose();
+  }
+
+  final List<Tab> myTabs = <Tab>[
+    const Tab(text: 'Coffee'),
+    const Tab(text: 'Tea'),
+    const Tab(text: 'Pastries'),
+    const Tab(text: 'Sandwiches and Snack'),
+    const Tab(text: 'Cold Beverages'),
+  ];
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -48,13 +71,14 @@ class _MyHomePageState extends State<MyHomePage> {
               children: [
                 Icon(Icons.menu),
                 CircleAvatar(
+                  backgroundColor: lightBlueInput,
                   child: FlutterLogo(),
                 ),
               ],
             ),
             const SizedBox(height: 30),
             const Text(
-              'Find the best \ncoffee for you',
+              'Find the best \ncoffee ☕ for you',
               style: TextStyle(
                   fontSize: 30, fontWeight: FontWeight.bold, wordSpacing: 1.6),
             ),
