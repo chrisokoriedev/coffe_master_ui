@@ -5,7 +5,10 @@ import 'list.dart';
 import 'widget/cricleUndertab.dart';
 
 const lightBlueInput = Color(0xff0e162b);
+const lightBlue = Color(0xff192347);
+const menuBlue = Color(0xff0d1426);
 const tabText = Color(0xff405361);
+const brownColor=Color(0xff966b4f);
 const scafffoldBg = Color.fromARGB(255, 2, 10, 22);
 void main() {
   runApp(const MyApp());
@@ -108,6 +111,10 @@ class _MyHomePageState extends State<MyHomePage>
                 children: tabViews,
               ),
             ),
+            Container(
+              height: 130,
+              color: lightBlueInput,
+            )
           ]),
         ),
       ),

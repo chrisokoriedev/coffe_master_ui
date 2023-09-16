@@ -38,9 +38,9 @@ List<ProductModel> getCoffeeDetail = [
       'it great',
       3.99),
   ProductModel(
-      'Two Guns Espresso',
-      'With oat milk',
-      'https://images.unsplash.com/photo-1497636577773-f1231844b336?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1887&q=80',
+      'Latte Coffee',
+      'With choco milk',
+      'https://images.unsplash.com/photo-1630040995437-80b01c5dd52d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1887&q=80',
       4.5,
       'it great',
       3.99)
