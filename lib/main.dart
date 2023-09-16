@@ -1,3 +1,4 @@
+import 'package:coffe_master_ui/widget/linear.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -8,7 +9,7 @@ const lightBlueInput = Color(0xff0e162b);
 const lightBlue = Color(0xff192347);
 const menuBlue = Color(0xff0d1426);
 const tabText = Color(0xff405361);
-const brownColor=Color(0xff966b4f);
+const brownColor = Color(0xff966b4f);
 const scafffoldBg = Color.fromARGB(255, 2, 10, 22);
 void main() {
   runApp(const MyApp());
@@ -59,9 +60,11 @@ class _MyHomePageState extends State<MyHomePage>
 
   @override
   Widget build(BuildContext context) {
+    final text = Theme.of(context).textTheme;
+
     return Scaffold(
       body: SafeArea(
-        child: Padding(
+        child: SingleChildScrollView(
           padding: const EdgeInsets.all(20),
           child:
               Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
@@ -79,7 +82,7 @@ class _MyHomePageState extends State<MyHomePage>
             const Text(
               'Find the best \ncoffee ☕ for you',
               style: TextStyle(
-                  fontSize: 30, fontWeight: FontWeight.bold, wordSpacing: 1.6),
+                  fontSize: 28, fontWeight: FontWeight.bold, wordSpacing: 1.6),
             ),
             const SizedBox(height: 20),
             TextFormField(
@@ -105,15 +108,27 @@ class _MyHomePageState extends State<MyHomePage>
                 unselectedLabelColor: tabText,
                 indicator: CircleTabIndicator(color: Colors.amber),
                 tabs: myTabs),
-            Expanded(
-              child: TabBarView(
-                controller: _tabController,
-                children: tabViews,
+            SizedBox(
+              height: MediaQuery.of(context).size.height * 0.2 + 120,
+              child: Expanded(
+                child: TabBarView(
+                  controller: _tabController,
+                  children: tabViews,
+                ),
               ),
             ),
+            Text(
+              'Special for you',
+              style: text.titleMedium,
+            ),
+            const SizedBox(height: 10),
             Container(
-              height: 130,
-              color: lightBlueInput,
+              height: 120,
+              decoration: BoxDecoration(
+                color: lightBlueInput,
+                borderRadius: BorderRadius.circular(15),
+                gradient: linearPattern(),
+              ),
             )
           ]),
         ),

@@ -1,6 +1,6 @@
-import 'package:cached_network_image/cached_network_image.dart';
 import 'package:coffe_master_ui/list.dart';
 import 'package:coffe_master_ui/main.dart';
+import 'package:coffe_master_ui/widget/linear.dart';
 import 'package:flutter/material.dart';
 
 class CoffeeTab extends StatelessWidget {
@@ -25,12 +25,7 @@ class CoffeeTab extends StatelessWidget {
             decoration: BoxDecoration(
               color: lightBlueInput,
               borderRadius: BorderRadius.circular(20),
-              gradient: const LinearGradient(
-                begin: Alignment.topLeft,
-                end: Alignment.center,
-                colors: [lightBlue, menuBlue],
-                stops: [0.0, 1.0],
-              ),
+              gradient: linearPattern(),
             ),
             margin: const EdgeInsets.symmetric(horizontal: 10),
             child: Column(
@@ -112,4 +107,6 @@ class CoffeeTab extends StatelessWidget {
           );
         });
   }
+
+ 
 }
