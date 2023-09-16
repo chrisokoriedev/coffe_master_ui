@@ -1,3 +1,4 @@
+import 'package:coffe_master_ui/contansts.dart';
 import 'package:coffe_master_ui/widget/linear.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -27,7 +28,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         scaffoldBackgroundColor: scafffoldBg,
         colorScheme: ColorScheme.fromSeed(
-            seedColor: Colors.amber, brightness: Brightness.dark),
+            seedColor: Colors.brown, brightness: Brightness.dark),
         useMaterial3: true,
       ),
       home: const MyHomePage(),
@@ -105,16 +106,15 @@ class _MyHomePageState extends State<MyHomePage>
                 controller: _tabController,
                 isScrollable: true,
                 dividerColor: Colors.transparent,
+                indicatorColor: brownColor,
                 unselectedLabelColor: tabText,
-                indicator: CircleTabIndicator(color: Colors.amber),
+                indicator: CircleTabIndicator(color: brownColor),
                 tabs: myTabs),
             SizedBox(
               height: MediaQuery.of(context).size.height * 0.2 + 120,
-              child: Expanded(
-                child: TabBarView(
-                  controller: _tabController,
-                  children: tabViews,
-                ),
+              child: TabBarView(
+                controller: _tabController,
+                children: tabViews,
               ),
             ),
             Text(
@@ -124,11 +124,28 @@ class _MyHomePageState extends State<MyHomePage>
             const SizedBox(height: 10),
             Container(
               height: 120,
+              padding: const EdgeInsets.all(15),
               decoration: BoxDecoration(
                 color: lightBlueInput,
                 borderRadius: BorderRadius.circular(15),
                 gradient: linearPattern(),
               ),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                Expanded(
+                  child: ClipRRect(
+                      borderRadius: BorderRadius.circular(30),
+                      child: Image.asset('$coffeeUrl/coffee_dash.jpeg')),
+                ),
+                Expanded(
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Text('5 Coffee Beans You Must Try!',style: text.bodyLarge,)
+                  ],
+                )),
+              ]),
             )
           ]),
         ),
