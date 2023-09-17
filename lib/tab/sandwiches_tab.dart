@@ -12,10 +12,10 @@ class SandWichesTab extends StatelessWidget {
     return ListView.builder(
         physics: const BouncingScrollPhysics(decelerationRate: ScrollDecelerationRate.fast),
         scrollDirection: Axis.horizontal,
-        itemCount: getCoffeeDetail.length,
+        itemCount: getSandwichesAndSnackDetails.length,
         padding: const EdgeInsets.symmetric(vertical: 20),
         itemBuilder: (context, index) {
-          final data = getCoffeeDetail[index];
+          final data = getSandwichesAndSnackDetails[index];
 
           return Container(
             width: 160,

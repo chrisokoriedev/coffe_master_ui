@@ -12,10 +12,10 @@ class ColdBeveragesTab extends StatelessWidget {
     return ListView.builder(
         physics: const BouncingScrollPhysics(decelerationRate: ScrollDecelerationRate.fast),
         scrollDirection: Axis.horizontal,
-        itemCount: getCoffeeDetail.length,
+        itemCount: getColdBeverageDetails.length,
         padding: const EdgeInsets.symmetric(vertical: 20),
         itemBuilder: (context, index) {
-          final data = getCoffeeDetail[index];
+          final data = getColdBeverageDetails[index];
 
           return Container(
             width: 160,
