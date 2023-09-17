@@ -1,4 +1,3 @@
-
 import 'package:coffe_master_ui/import.dart';
 import 'package:flutter/material.dart';
 
@@ -88,20 +87,6 @@ class CoffeeTab extends StatelessWidget {
                       ),
                     ],
                   )
-                  // CachedNetworkImage(
-                  //   imageUrl: data.imageUrl,
-                  //   progressIndicatorBuilder: (context, url, downloadProgress) =>
-                  //       CircularProgressIndicator(
-                  //           value: downloadProgress.progress),
-                  //   errorWidget: (context, url, error) => Icon(Icons.error),
-                  // ),
-                  // Container(
-                  //   width: 30,
-                  //   height: 30,
-                  //   decoration: BoxDecoration(
-                  //       image: DecorationImage(
-                  //           image: CachedNetworkImageProvider(data.imageUrl))),
-                  // )
                 ]),
           );
         });

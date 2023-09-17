@@ -1,6 +1,10 @@
 
 
 import 'package:coffe_master_ui/import.dart';
+import 'package:coffe_master_ui/tab/cold_beverages_tab.dart';
+import 'package:coffe_master_ui/tab/pastries_tab.dart';
+import 'package:coffe_master_ui/tab/sandwiches_tab.dart';
+import 'package:coffe_master_ui/tab/tea_tab.dart';
 import 'package:flutter/material.dart';
 
 import 'tab/coffee_tab.dart';
@@ -15,10 +19,10 @@ final List<Tab> myTabs = <Tab>[
 
 final List<Widget> tabViews = [
   const CoffeeTab(),
-  const Center(child: Text('Tab 2 content')),
-  const Center(child: Text('Tab 2 content')),
-  const Center(child: Text('Tab 2 content')),
-  const Center(child: Text('Tab 2 content')),
+  const TeaTab(),
+  const PastriesTab(),
+  const SandWichesTab(),
+  const ColdBeveragesTab(),
 ];
 
 class ProductModel {
