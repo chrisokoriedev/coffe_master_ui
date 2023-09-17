@@ -1,5 +1,3 @@
-
-
 import 'package:coffe_master_ui/import.dart';
 import 'package:coffe_master_ui/tab/cold_beverages_tab.dart';
 import 'package:coffe_master_ui/tab/pastries_tab.dart';
