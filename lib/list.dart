@@ -43,19 +43,19 @@ List<ProductModel> getCoffeeDetail = [
       4.5, 'it great', 3.99)
 ];
 List<ProductModel> getTeaDetails = [
-  ProductModel('Two Guns Espresso', 'With oat milk', '$teaUrl/tea_a.png', 4.5,
+  ProductModel('Black Tea', 'With nothing', '$teaUrl/tea_a.png', 4.5,
       'it great', 3.99),
-  ProductModel('Latte Coffee', 'With choco milk', '$teaUrl/tea_b.jpg', 4.5,
+  ProductModel('Herbal Teae', 'With fresh leaf', '$teaUrl/tea_b.jpg', 4.5,
       'it great', 3.99),
-  ProductModel('Cortado Coffee', 'With normal milk', '$teaUrl/tea_c.jpg', 4.5,
+  ProductModel('Rooibos Tea', '', '$teaUrl/tea_c.jpg', 4.5,
       'it great', 3.99)
 ];
 List<ProductModel> getPastriesDetails = [
-  ProductModel('Two Guns Espresso', 'With oat milk', '$coffeeUrl/coffee_a.jpeg',
+  ProductModel('Two Guns Espresso', 'With nothing', '$coffeeUrl/coffee_a.jpeg',
       4.5, 'it great', 3.99),
-  ProductModel('Latte Coffee', 'With choco milk', '$coffeeUrl/coffee_b.jpeg',
+  ProductModel('Latte Coffee', 'With fresh leaf', '$coffeeUrl/coffee_b.jpeg',
       4.5, 'it great', 3.99),
-  ProductModel('Cortado Coffee', 'With normal milk', '$coffeeUrl/coffee_c.jpg',
+  ProductModel('Cortado Coffee', '', '$coffeeUrl/coffee_c.jpg',
       4.5, 'it great', 3.99)
 ];
 List<ProductModel> getSandwichesAndSnackDetails = [
