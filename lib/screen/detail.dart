@@ -10,7 +10,8 @@ class DetailScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final text = Theme.of(context).textTheme;
-    final _valueNotifier = ValueNotifier(false);
+    final valueNotifier = ValueNotifier(false);
+    final selectedOption = ValueNotifier('S');
 
     return Scaffold(
       body: Padding(
@@ -192,31 +193,56 @@ class DetailScreen extends StatelessWidget {
             Padding(
               padding: const EdgeInsets.all(10.0),
               child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   const SizedBox(height: 20),
                   Text(
                     'Description',
-                    style: text.bodyMedium!.copyWith(color: Colors.white70),
+                    style: text.bodyMedium!
+                        .copyWith(color: Colors.white70, height: 1.7),
                   ),
                   ValueListenableBuilder<bool>(
-                      valueListenable: _valueNotifier,
+                      valueListenable: valueNotifier,
                       builder: (context, value, child) {
-                        return Column(
+                        return Wrap(
                           children: [
                             Text(
                               data.description!,
+                              style: text.bodySmall,
                               maxLines: value ? null : 2,
-                              overflow: TextOverflow.ellipsis,
+                              overflow: value
+                                  ? TextOverflow.visible
+                                  : TextOverflow.ellipsis,
                             ),
-                            TextButton(
-                              onPressed: () {
-                                _valueNotifier.value = !_valueNotifier.value;
+                            GestureDetector(
+                              onTap: () {
+                                valueNotifier.value = !valueNotifier.value;
                               },
-                              child: const Text('Read More'),
+                              child: Text(
+                                value ? 'Read Less' : 'Read More',
+                                style: text.bodyMedium!.copyWith(
+                                  color: brownColor,
+                                ),
+                              ),
                             ),
                           ],
                         );
-                      })
+                      }),
+                  const SizedBox(height: 20),
+                  Text(
+                    'Size',
+                    style: text.bodyMedium!
+                        .copyWith(color: Colors.white70, height: 1.7),
+                  ),
+                  const SizedBox(height: 10),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      OptionButton(text: 'S', selectedOption: selectedOption),
+                      OptionButton(text: 'M', selectedOption: selectedOption),
+                      OptionButton(text: 'L', selectedOption: selectedOption),
+                    ],
+                  )
                 ],
               ),
             ),
@@ -224,5 +250,37 @@ class DetailScreen extends StatelessWidget {
         ),
       ),
     );
+  }
+}
+
+class OptionButton extends StatelessWidget {
+  final String text;
+  final ValueNotifier<String> selectedOption;
+
+  const OptionButton(
+      {super.key, required this.text, required this.selectedOption});
+
+  @override
+  Widget build(BuildContext context) {
+    return ValueListenableBuilder<String>(
+        valueListenable: selectedOption,
+        builder: (context, value, child) {
+          return GestureDetector(
+            onTap: () => selectedOption.value = text,
+            child: Container(
+                width: 100,
+                height: 35,
+                alignment: Alignment.center,
+                decoration: BoxDecoration(
+                    color: value == text ? scafffoldBg : lightBlueInput,
+                    border: Border.all(
+                        color: value == text ? brownColor : Colors.transparent),
+                    borderRadius: BorderRadius.circular(8)),
+                child: Text(
+                  text,
+                  style: TextStyle(color: value == text ? brownColor : null),
+                )),
+          );
+        });
   }
 }
