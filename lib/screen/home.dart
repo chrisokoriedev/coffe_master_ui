@@ -82,7 +82,7 @@ class _MyHomePageState extends State<MyHomePage>
             ),
             const SizedBox(height: 20),
             SlideInLeft(
-               delay: Duration(milliseconds: delay + 3 * start),
+              delay: Duration(milliseconds: delay + 3 * start),
               child: TabBar(
                   controller: _tabController,
                   isScrollable: true,
@@ -93,7 +93,7 @@ class _MyHomePageState extends State<MyHomePage>
                   tabs: myTabs),
             ),
             SlideInRight(
-               delay: Duration(milliseconds: delay + 3 * start),
+              delay: Duration(milliseconds: delay + 3 * start),
               child: SizedBox(
                 height: MediaQuery.of(context).size.height * 0.2 + 120,
                 child: TabBarView(
@@ -102,14 +102,14 @@ class _MyHomePageState extends State<MyHomePage>
                 ),
               ),
             ),
+            const SizedBox(height: 20),
             Text(
               'Special for you',
               style: text.titleMedium,
             ),
             const SizedBox(height: 10),
             SlideInLeft(
-               delay: Duration(milliseconds: delay + 3 * start),
-
+              delay: Duration(milliseconds: delay + 3 * start),
               child: Container(
                 height: 120,
                 padding: const EdgeInsets.all(15),
@@ -144,6 +144,36 @@ class _MyHomePageState extends State<MyHomePage>
               ),
             )
           ]),
+        ),
+      ),
+      bottomNavigationBar: Container(
+        padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 20),
+        width: double.infinity,
+        child: const Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            Icon(
+              Icons.home_filled,
+              size: 18,
+              color: brownColor,
+            ),
+            Icon(
+              CupertinoIcons.cart_fill,
+              size: 18,
+              color: tabText,
+            ),
+            Icon(
+              CupertinoIcons.color_filter_fill,
+              size: 18,
+              color: tabText,
+            ),
+            Icon(
+              Icons.notifications,
+              size: 18,
+              color: tabText,
+            ),
+          ],
         ),
       ),
     );
