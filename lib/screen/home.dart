@@ -38,14 +38,17 @@ class _MyHomePageState extends State<MyHomePage>
               Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
             BounceInLeft(
               delay: Duration(milliseconds: delay),
-              child: const Row(
+              child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Icon(Icons.menu),
-                  CircleAvatar(
-                    backgroundColor: lightBlueInput,
-                    child: FlutterLogo(),
-                  ),
+                  const Icon(Icons.menu),
+                  ClipRRect(
+                      borderRadius: BorderRadius.circular(50),
+                      child: Image.asset(
+                        'assets/profile.jpg',
+                        width: 40,
+                        fit: BoxFit.cover,
+                      )),
                 ],
               ),
             ),
