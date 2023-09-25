@@ -14,7 +14,7 @@ class DetailScreen extends StatelessWidget {
     final selectedOption = ValueNotifier('S');
 
     return Scaffold(
-      body: Padding(
+      body: SingleChildScrollView(
         padding: const EdgeInsets.all(5.0),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -245,6 +245,53 @@ class DetailScreen extends StatelessWidget {
                   )
                 ],
               ),
+            ),
+          ],
+        ),
+      ),
+      bottomNavigationBar: Container(
+        width: double.infinity,
+        padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 20),
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Flexible(
+                  flex: 4,
+                  child: Column(
+                    children: [
+                      Text(
+                        'Price',
+                        style: text.bodyMedium!
+                            .copyWith(color: Colors.white70, height: 1.7),
+                      ),
+                      Text(
+                        '\$${data.price.toString()}',
+                        style: text.titleLarge,
+                      ),
+                    ],
+                  ),
+                ),
+                Flexible(
+                  flex: 8,
+                  child: Container(
+                      width: double.infinity,
+                      padding: const EdgeInsets.symmetric(
+                          horizontal: 30, vertical: 15),
+                      alignment: Alignment.center,
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(20),
+                        color: brownColor,
+                      ),
+                      child: Text(
+                        'Buy Now',
+                        style: text.bodyLarge!
+                            .copyWith(fontWeight: FontWeight.w900),
+                      )),
+                ),
+              ],
             ),
           ],
         ),
